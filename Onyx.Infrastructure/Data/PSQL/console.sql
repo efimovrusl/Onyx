@@ -6,10 +6,6 @@ CALL sp_create_user(gen_random_uuid(), 'Pennyw1se', 'Ruslan', 'Yefimov', 'hashed
 DELETE FROM users
     WHERE true;
 
-
-
-
-
 DO $$
     DECLARE found_user_id UUID;
     BEGIN
