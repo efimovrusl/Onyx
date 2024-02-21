@@ -1,10 +1,4 @@
 ###############################################################################
-# Fix repo's main language to C#
-###############################################################################
-# *.razor linguist-language=csharp # why the fuck does this not work
-*.css linguist-vendored=false # I'm a backend developer after all
-
-###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
