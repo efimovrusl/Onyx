@@ -11,8 +11,8 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<None Remove="Data\PSQL\*" />
-		<EmbeddedResource Include="Data\PSQL\*.sql" Exclude="Data\PSQL\console.sql" />
+		<None Remove="Migrations\PSQL\*" />
+		<EmbeddedResource Include="Migrations\PSQL\*.sql" Exclude="Migrations\PSQL\console.sql" />
 	</ItemGroup>
 
 </Project>
