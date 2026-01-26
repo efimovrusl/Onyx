@@ -3,22 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54754C31-EC9F-4D3F-BD27-2DD0EEDC6130}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onyx.Domain", "Onyx.Domain\Onyx.Domain.csproj", "{DB7A2248-8775-4199-87D1-671CDEAD9856}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onyx.API", "Onyx.API\Onyx.API.csproj", "{B79AC3BA-B128-4FBF-BCDA-35887F608CE1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{395A5421-D53D-401F-ADCB-839DB7A74216} = {395A5421-D53D-401F-ADCB-839DB7A74216}
-		{DB7A2248-8775-4199-87D1-671CDEAD9856} = {DB7A2248-8775-4199-87D1-671CDEAD9856}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onyx.Infrastructure", "Onyx.Infrastructure\Onyx.Infrastructure.csproj", "{395A5421-D53D-401F-ADCB-839DB7A74216}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DB7A2248-8775-4199-87D1-671CDEAD9856} = {DB7A2248-8775-4199-87D1-671CDEAD9856}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.WebUI.Client", "Onyx.WebUI.Client\Onyx.WebUI.Client.csproj", "{3A7383A3-ADCE-48B7-83FA-F424DE570123}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.API", "Onyx.API\Onyx.API.csproj", "{A086F71A-4F76-4709-B15F-5C9367328586}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.WebUI.Client", "Onyx.WebUI.Client\Onyx.WebUI.Client.csproj", "{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{76F0001B-65AF-4441-AB59-4C8015F33BB1}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		.gitignore = .gitignore
+		.dockerignore = .dockerignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.Application", "Onyx.Application\Onyx.Application.csproj", "{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,27 +33,25 @@ Global
 		{DB7A2248-8775-4199-87D1-671CDEAD9856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB7A2248-8775-4199-87D1-671CDEAD9856}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB7A2248-8775-4199-87D1-671CDEAD9856}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B79AC3BA-B128-4FBF-BCDA-35887F608CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B79AC3BA-B128-4FBF-BCDA-35887F608CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B79AC3BA-B128-4FBF-BCDA-35887F608CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B79AC3BA-B128-4FBF-BCDA-35887F608CE1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{395A5421-D53D-401F-ADCB-839DB7A74216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{395A5421-D53D-401F-ADCB-839DB7A74216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{395A5421-D53D-401F-ADCB-839DB7A74216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{395A5421-D53D-401F-ADCB-839DB7A74216}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A7383A3-ADCE-48B7-83FA-F424DE570123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A7383A3-ADCE-48B7-83FA-F424DE570123}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A7383A3-ADCE-48B7-83FA-F424DE570123}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A7383A3-ADCE-48B7-83FA-F424DE570123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A086F71A-4F76-4709-B15F-5C9367328586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A086F71A-4F76-4709-B15F-5C9367328586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A086F71A-4F76-4709-B15F-5C9367328586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A086F71A-4F76-4709-B15F-5C9367328586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{DB7A2248-8775-4199-87D1-671CDEAD9856} = {54754C31-EC9F-4D3F-BD27-2DD0EEDC6130}
-		{B79AC3BA-B128-4FBF-BCDA-35887F608CE1} = {54754C31-EC9F-4D3F-BD27-2DD0EEDC6130}
-		{395A5421-D53D-401F-ADCB-839DB7A74216} = {54754C31-EC9F-4D3F-BD27-2DD0EEDC6130}
-		{3A7383A3-ADCE-48B7-83FA-F424DE570123} = {54754C31-EC9F-4D3F-BD27-2DD0EEDC6130}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {825D8B27-1DD1-4EFF-87AF-761A3AFD0D52}

@@ -1,18 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<LangVersion>13</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="dbup-postgresql" Version="5.0.40" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
 	</ItemGroup>
 	
 	<ItemGroup>
 		<None Remove="Data\PSQL\*" />
 		<EmbeddedResource Include="Data\PSQL\*.sql" Exclude="Data\PSQL\console.sql" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Onyx.Domain\Onyx.Domain.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Folder Include="Persistence\" />
 	</ItemGroup>
 
 </Project>
