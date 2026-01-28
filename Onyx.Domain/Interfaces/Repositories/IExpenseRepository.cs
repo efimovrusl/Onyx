@@ -8,13 +8,13 @@ public interface IExpenseRepository
     Task<List<Expense>> GetByGroup(Guid groupId);
     Task<List<Expense>> GetByUser(Guid userId);
     
-    Task Insert(Expense expense, List<Payer> payers, List<Consumer> consumers);
-    Task Update(Guid id, string description, decimal amount);
+    Task<Expense> Insert(Expense expense);
     Task Delete(Guid id);
     
     Task<List<Payer>> GetPayers(Guid expenseId);
     Task<List<Consumer>> GetConsumers(Guid expenseId);
-    
+
+    Task UpdateDescription(Guid id, string description);
     Task UpdatePayers(Guid expenseId, List<Payer> payers);
     Task UpdateConsumers(Guid expenseId, List<Consumer> consumers);
 }

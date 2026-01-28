@@ -5,7 +5,7 @@ namespace Onyx.Domain.Models;
 public record Expense
 (
     Guid Id,
-    Guid GroupId,
+    Guid? GroupId,
     string Description,
     decimal Amount,
     Currency Currency,

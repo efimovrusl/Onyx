@@ -1,3 +1,8 @@
+using Npgsql;
+using Onyx.Application;
+using Onyx.Domain.Enums;
+using Onyx.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services
+    .AddApplicationServices()
+    .AddInfrastructureServices(builder.Configuration);
 
 #region Swagger
 builder.Services.AddEndpointsApiExplorer();

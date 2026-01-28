@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Onyx.Domain.Enums;
 using Onyx.Domain.Interfaces.Commands;
 using Onyx.Domain.Interfaces.Queries;
 using Onyx.Domain.Models;
@@ -31,9 +32,11 @@ public class ExpenseController(
     {
         var expense = await commands.AddExpense(
             request.GroupId,
-            request.Payer,
-            request.Consumers,
-            request.Description
+            request.Description,
+            request.Amount,
+            request.Currency,
+            request.Payers,
+            request.Consumers
         );
         
         return Ok(expense);
@@ -41,8 +44,10 @@ public class ExpenseController(
 }
 
 public record AddExpenseRequest(
-    Guid GroupId,
-    Payer Payer,
-    List<Consumer> Consumers,
-    string Description
+    Guid? GroupId,
+    string Description,
+    decimal Amount,
+    Currency Currency,
+    List<Payer> Payers,
+    List<Consumer> Consumers
 );

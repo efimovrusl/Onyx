@@ -9,6 +9,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="dbup-postgresql" Version="5.0.40" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.12" />
+		<PackageReference Include="Npgsql" Version="10.0.1" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
 	</ItemGroup>
 	
@@ -19,10 +22,6 @@
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\Onyx.Domain\Onyx.Domain.csproj" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="Persistence\" />
 	</ItemGroup>
 
 </Project>

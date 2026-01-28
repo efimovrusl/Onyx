@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
     username        VARCHAR(32) NOT NULL,
     first_name      VARCHAR(32) NOT NULL,
     last_name       VARCHAR(32) NOT NULL,
-    created_at   TIMESTAMP DEFAULT NOW() NOT NULL,
+    created_at      TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
     is_deleted      BOOLEAN DEFAULT false NOT NULL
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS login_secrets (
 
 CREATE TABLE IF NOT EXISTS groups (
     id              UUID PRIMARY KEY,
-    name      VARCHAR(32) NOT NULL
+    name            VARCHAR(32) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS groups_users (
@@ -36,18 +36,20 @@ CREATE TABLE IF NOT EXISTS expenses (
     description     VARCHAR(64) NOT NULL,
     amount          DECIMAL NOT NULL,
     currency        currency_type NOT NULL,
-    created_at      TIMESTAMP DEFAULT NOW() NOT NULL
+    created_at      TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS expenses_payers (
     expense_id      UUID REFERENCES expenses(id),
     payer_id        UUID REFERENCES users(id),
     amount          DECIMAL NOT NULL,
-    currency        currency_type NOT NULL
+    currency        currency_type NOT NULL,
+    PRIMARY KEY (expense_id, payer_id)
 );
 
 CREATE TABLE IF NOT EXISTS expenses_consumers (
     expense_id      UUID REFERENCES expenses(id),
     consumer_id     UUID REFERENCES users(id),
-    debt_share      DOUBLE PRECISION
+    debt_share      DOUBLE PRECISION,
+    PRIMARY KEY (expense_id, consumer_id)
 );
