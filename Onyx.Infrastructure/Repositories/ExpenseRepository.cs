@@ -3,6 +3,7 @@ using Onyx.Domain.Enums;
 using Onyx.Domain.Interfaces.Repositories;
 using Onyx.Domain.Models;
 using Onyx.Infrastructure.Context;
+using Onyx.Infrastructure.Mappers;
 
 namespace Onyx.Infrastructure.Repositories;
 
@@ -15,27 +16,41 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
                             .Include(e => e.ExpensesConsumers)
                             .FirstOrDefaultAsync(e => e.Id == id) 
                         ?? throw new Exception($"Expense {id} not found.");
-    
-        return new Expense(
-            dbExpense.Id, 
-            dbExpense.GroupId, 
-            dbExpense.Description,
-            dbExpense.Amount, 
-            dbExpense.Currency, 
-            dbExpense.CreatedAt,
-            dbExpense.ExpensesPayers.Select(p => new Payer(p.PayerId, p.Amount, p.Currency)).ToList(),
-            dbExpense.ExpensesConsumers.Select(c => new Consumer(c.ConsumerId, c.DebtShare!.Value)).ToList()
-        );
+
+        return dbExpense.ToDomain(); 
     }
 
     public async Task<List<Expense>> GetByGroup(Guid groupId)
     {
-        throw new NotImplementedException();
+        var dbExpenses = await db.Expenses
+            .Include(e => e.ExpensesPayers)
+            .Include(e => e.ExpensesConsumers)
+            .Where(e => e.GroupId == groupId)
+            .ToListAsync();
+
+        return dbExpenses.Select(static e => e.ToDomain()).ToList();
+    }
+    
+    public async Task<List<Expense>> GetByPayerId(Guid groupId, Guid payerId)
+    {
+        var dbExpenses = await db.Expenses
+            .Include(e => e.ExpensesPayers)
+            .Include(e => e.ExpensesConsumers)
+            .Where(e => e.ExpensesPayers.Any(p => p.PayerId == payerId))
+            .ToListAsync();
+
+        return [.. dbExpenses.Select(static e => e.ToDomain())];
     }
 
-    public async Task<List<Expense>> GetByUser(Guid userId)
+    public async Task<List<Expense>> GetByConsumerId(Guid groupId, Guid consumerId)
     {
-        throw new NotImplementedException();
+        var dbExpenses = await db.Expenses
+            .Include(e => e.ExpensesPayers)
+            .Include(e => e.ExpensesConsumers)
+            .Where(e => e.ExpensesConsumers.Any(c => c.ConsumerId == consumerId))
+            .ToListAsync();
+
+        return [.. dbExpenses.Select(static e => e.ToDomain())];
     }
 
     public async Task<Expense> Insert(Expense expense)

@@ -6,7 +6,8 @@ public interface IExpenseRepository
 {
     Task<Expense> GetById(Guid id);
     Task<List<Expense>> GetByGroup(Guid groupId);
-    Task<List<Expense>> GetByUser(Guid userId);
+    Task<List<Expense>> GetByPayerId(Guid groupId, Guid payerId);
+    Task<List<Expense>> GetByConsumerId(Guid groupId, Guid consumerId);
     
     Task<Expense> Insert(Expense expense);
     Task Delete(Guid id);

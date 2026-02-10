@@ -4,19 +4,24 @@ using Onyx.Domain.Models;
 
 namespace Onyx.Application.Queries;
 
-public class ExpenseQueries(IExpenseRepository expenseRepository) : IExpenseQueries
+public class ExpenseQueries(IExpenseRepository expenseRepository, IGroupRepository groupRepository) : IExpenseQueries
 {
     public async Task<Expense> GetExpenseById(Guid expenseId)
     {
         return await expenseRepository.GetById(expenseId);
     }
 
-    public Task<List<Expense>> GetGroupExpenses(Guid groupId)
+    public async Task<List<Expense>> GetGroupExpenses(Guid groupId)
     {
-        throw new NotImplementedException();
+        return await expenseRepository.GetByGroup(groupId);
     }
 
-    public Task<List<Expense>> GetUserExpenses(Guid userId)
+    public async Task<List<Expense>> GetPayerExpenses(Guid groupId, Guid userId)
+    {
+        return await expenseRepository.GetByPayerId(groupId, userId);
+    }
+
+    public async Task<List<Expense>> GetConsumerExpenses(Guid groupId, Guid userId)
     {
         throw new NotImplementedException();
     }
