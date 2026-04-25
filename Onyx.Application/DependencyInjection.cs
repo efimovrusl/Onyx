@@ -13,6 +13,7 @@ public static class DependencyInjection
         services
             .AddScoped<IExpenseCommands, ExpenseCommands>()
             .AddScoped<IExpenseQueries, ExpenseQueries>();
+        
         return services;
     }
 }

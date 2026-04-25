@@ -9,6 +9,7 @@ public interface IGroupRepository
     Task<List<User>> GetMembers(Guid groupId);
     
     Task Insert(Group group, List<Guid> memberIds);
+    [Obsolete("Not implemented yet")]
     Task Delete(Guid id);
     Task AddMember(Guid groupId, Guid userId);
     Task RemoveMember(Guid groupId, Guid userId);

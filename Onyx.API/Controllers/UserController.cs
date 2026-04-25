@@ -19,18 +19,18 @@ public class UserController(
         return Ok(user);
     }
 
-    [HttpGet("email/{email}")]
-    public async Task<ActionResult<User>> GetUserByEmail(string email)
+    [HttpGet]
+    public async Task<ActionResult<User>> GetUser(
+        [FromQuery] string? email,
+        [FromQuery] string? username)
     {
-        var user = await queries.GetUserByEmail(email);
-        return Ok(user);
-    }
+        if (email is not null)
+            return Ok(await queries.GetUserByEmail(email));
 
-    [HttpGet("username/{username}")]
-    public async Task<ActionResult<User>> GetUserByUsername(string username)
-    {
-        var user = await queries.GetUserByUsername(username);
-        return Ok(user);
+        if (username is not null)
+            return Ok(await queries.GetUserByUsername(username));
+
+        return BadRequest("Provide either 'email' or 'username' query parameter.");
     }
 
     [HttpPost]
