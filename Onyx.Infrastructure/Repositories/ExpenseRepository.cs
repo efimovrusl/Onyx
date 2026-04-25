@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Onyx.Domain.Enums;
 using Onyx.Domain.Interfaces.Repositories;
 using Onyx.Domain.Models;
 using Onyx.Infrastructure.Context;
@@ -14,6 +13,7 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
         var dbExpense = await db.Expenses
                             .Include(e => e.ExpensesPayers)
                             .Include(e => e.ExpensesConsumers)
+                            .AsSplitQuery()
                             .FirstOrDefaultAsync(e => e.Id == id) 
                         ?? throw new Exception($"Expense {id} not found.");
 
@@ -25,6 +25,7 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
         var dbExpenses = await db.Expenses
             .Include(e => e.ExpensesPayers)
             .Include(e => e.ExpensesConsumers)
+            .AsSplitQuery()
             .Where(e => e.GroupId == groupId)
             .ToListAsync();
 
@@ -36,6 +37,7 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
         var dbExpenses = await db.Expenses
             .Include(e => e.ExpensesPayers)
             .Include(e => e.ExpensesConsumers)
+            .AsSplitQuery()
             .Where(e => e.ExpensesPayers.Any(p => p.PayerId == payerId))
             .ToListAsync();
 
@@ -47,6 +49,7 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
         var dbExpenses = await db.Expenses
             .Include(e => e.ExpensesPayers)
             .Include(e => e.ExpensesConsumers)
+            .AsSplitQuery()
             .Where(e => e.ExpensesConsumers.Any(c => c.ConsumerId == consumerId))
             .ToListAsync();
 

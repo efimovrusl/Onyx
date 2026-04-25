@@ -22,9 +22,10 @@ public class GroupRepository(SpendingDbContext db) : IGroupRepository
         var dbGroups = await db.GroupsUsers
             .Where(gu => gu.UserId == userId)
             .Select(gu => gu.Group)
+            .Where(group => group != null)
             .ToListAsync();
 
-        return [.. dbGroups.Select(gu => gu.ToDomain())];
+        return [.. dbGroups.Select(static group => group!.ToDomain())];
     }
 
     public async Task<List<User>> GetMembers(Guid groupId)
@@ -32,9 +33,10 @@ public class GroupRepository(SpendingDbContext db) : IGroupRepository
         var dbUsers = await db.GroupsUsers
             .Where(gu => gu.GroupId == groupId)
             .Select(gu => gu.User)
+            .Where(user => user != null)
             .ToListAsync();
 
-        return [.. dbUsers.Select(static u => u.ToDomain())];
+        return [.. dbUsers.Select(static user => user!.ToDomain())];
     }
 
     public async Task Insert(Group group, List<Guid> memberIds)

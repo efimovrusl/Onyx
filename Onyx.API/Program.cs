@@ -1,6 +1,4 @@
-using Npgsql;
 using Onyx.Application;
-using Onyx.Domain.Enums;
 using Onyx.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +31,12 @@ if (app.Environment.IsDevelopment())
     #endregion
 }
 
-app.UseHttpsRedirection();
+var httpsPorts = app.Configuration["ASPNETCORE_HTTPS_PORTS"] ?? app.Configuration["HTTPS_PORT"];
+if (!string.IsNullOrWhiteSpace(httpsPorts))
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseAuthorization();
 app.MapControllers();
 
