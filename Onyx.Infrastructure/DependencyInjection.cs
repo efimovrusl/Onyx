@@ -24,6 +24,7 @@ public static class DependencyInjection
             {
                 npgsqlOptions.MapEnum<Currency>("currency_type", nameTranslator: new NpgsqlNullNameTranslator());
             }))
+            .AddScoped<IGroupRepository, GroupRepository>()
             .AddScoped<IExpenseRepository, ExpenseRepository>();
         return services;
     }

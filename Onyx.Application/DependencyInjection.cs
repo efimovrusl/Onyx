@@ -11,6 +11,8 @@ public static class DependencyInjection
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services
+            .AddScoped<IGroupCommands, GroupCommands>()
+            .AddScoped<IGroupQueries, GroupQueries>()
             .AddScoped<IExpenseCommands, ExpenseCommands>()
             .AddScoped<IExpenseQueries, ExpenseQueries>();
         

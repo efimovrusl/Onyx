@@ -1,16 +1,20 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-USER $APP_UID
+﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
+ARG APP_UID=64198
+USER ${APP_UID}
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/Onyx.API/Onyx.API.csproj", "src/Onyx.API/"]
-RUN dotnet restore "src/Onyx.API/Onyx.API.csproj"
+COPY ["Onyx.API/Onyx.API.csproj", "Onyx.API/"]
+COPY ["Onyx.Application/Onyx.Application.csproj", "Onyx.Application/"]
+COPY ["Onyx.Domain/Onyx.Domain.csproj", "Onyx.Domain/"]
+COPY ["Onyx.Infrastructure/Onyx.Infrastructure.csproj", "Onyx.Infrastructure/"]
+RUN dotnet restore "Onyx.API/Onyx.API.csproj"
 COPY . .
-WORKDIR "/src/src/Onyx.API"
+WORKDIR "/src/Onyx.API"
 RUN dotnet build "./Onyx.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
