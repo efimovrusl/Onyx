@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		docker-compose.yml = docker-compose.yml
 		.gitignore = .gitignore
 		.dockerignore = .dockerignore
+		todo.md = todo.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.Application", "Onyx.Application\Onyx.Application.csproj", "{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}"
