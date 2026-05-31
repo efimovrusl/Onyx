@@ -12,8 +12,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onyx.Infrastructure", "Onyx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.API", "Onyx.API\Onyx.API.csproj", "{A086F71A-4F76-4709-B15F-5C9367328586}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.WebUI.Client", "Onyx.WebUI.Client\Onyx.WebUI.Client.csproj", "{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{76F0001B-65AF-4441-AB59-4C8015F33BB1}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
@@ -22,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.Application", "Onyx.Application\Onyx.Application.csproj", "{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onyx.BlazorUI.Client", "Onyx.BlazorUI.Client\Onyx.BlazorUI.Client.csproj", "{E3FDE3BE-183F-499F-B1A7-6C5B299C9F42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{2E4FF9BD-7F0F-407E-83E9-3B708B51D697}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,19 +43,22 @@ Global
 		{A086F71A-4F76-4709-B15F-5C9367328586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A086F71A-4F76-4709-B15F-5C9367328586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A086F71A-4F76-4709-B15F-5C9367328586}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBE25B66-AF7F-44CE-BF25-831DAA3E2E3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA93C1A-F9C8-4DBD-887A-87D575A7812D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FDE3BE-183F-499F-B1A7-6C5B299C9F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FDE3BE-183F-499F-B1A7-6C5B299C9F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FDE3BE-183F-499F-B1A7-6C5B299C9F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FDE3BE-183F-499F-B1A7-6C5B299C9F42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {825D8B27-1DD1-4EFF-87AF-761A3AFD0D52}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3FDE3BE-183F-499F-B1A7-6C5B299C9F42} = {2E4FF9BD-7F0F-407E-83E9-3B708B51D697}
 	EndGlobalSection
 EndGlobal
