@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Onyx.Application.Commands;
 using Onyx.Application.Queries;
-using Onyx.Domain.Interfaces.Commands;
-using Onyx.Domain.Interfaces.Queries;
+using Onyx.Application.Interfaces.Commands;
+using Onyx.Application.Interfaces.Queries;
 
 namespace Onyx.Application;
 

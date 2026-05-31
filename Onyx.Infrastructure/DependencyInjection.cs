@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Npgsql.NameTranslation;
 using Onyx.Domain.Enums;
-using Onyx.Domain.Interfaces.Repositories;
+using Onyx.Application.Interfaces.Repositories;
 using Onyx.Infrastructure.Context;
 using Onyx.Infrastructure.Repositories;
 

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Onyx.Domain.Interfaces.Queries;
+using Onyx.Application.Interfaces.Queries;
 using Onyx.Domain.Models;
 
 namespace Onyx.API.Controllers;

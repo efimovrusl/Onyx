@@ -1,6 +1,6 @@
 using Onyx.Domain.Enums;
 
-namespace Onyx.Domain.Interfaces.Commands;
+namespace Onyx.Application.Interfaces.Commands;
 
 public interface ISettlementCommands
 {

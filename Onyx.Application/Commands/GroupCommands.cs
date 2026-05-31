@@ -1,5 +1,5 @@
-using Onyx.Domain.Interfaces.Commands;
-using Onyx.Domain.Interfaces.Repositories;
+using Onyx.Application.Interfaces.Commands;
+using Onyx.Application.Interfaces.Repositories;
 using Onyx.Domain.Models;
 
 namespace Onyx.Application.Commands;
@@ -25,6 +25,7 @@ public class GroupCommands(
         await groupRepository.RemoveMember(groupId, userId);
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task DeleteGroup(Guid groupId)
     {
         await groupRepository.Delete(groupId);

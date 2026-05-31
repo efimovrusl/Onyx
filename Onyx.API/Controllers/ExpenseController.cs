@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Onyx.Domain.Enums;
-using Onyx.Domain.Interfaces.Commands;
-using Onyx.Domain.Interfaces.Queries;
+using Onyx.Application.Interfaces.Commands;
+using Onyx.Application.Interfaces.Queries;
 using Onyx.Domain.Models;
 
 namespace Onyx.API.Controllers;

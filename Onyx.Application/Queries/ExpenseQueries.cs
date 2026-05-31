@@ -1,10 +1,10 @@
-using Onyx.Domain.Interfaces.Queries;
-using Onyx.Domain.Interfaces.Repositories;
+using Onyx.Application.Interfaces.Queries;
+using Onyx.Application.Interfaces.Repositories;
 using Onyx.Domain.Models;
 
 namespace Onyx.Application.Queries;
 
-public class ExpenseQueries(IExpenseRepository expenseRepository, IGroupRepository groupRepository) : IExpenseQueries
+public class ExpenseQueries(IExpenseRepository expenseRepository) : IExpenseQueries
 {
     public async Task<Expense> GetExpenseById(Guid expenseId)
     {

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Onyx.Domain.Interfaces.Repositories;
+using Onyx.Application.Interfaces.Repositories;
 using Onyx.Domain.Models;
 using Onyx.Infrastructure.Context;
 using Onyx.Infrastructure.Mappers;
@@ -98,31 +98,37 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
         return expense;
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task Delete(Guid id)
     {
         throw new NotImplementedException();
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task<List<Payer>> GetPayers(Guid expenseId)
     {
         throw new NotImplementedException();
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task<List<Consumer>> GetConsumers(Guid expenseId)
     {
         throw new NotImplementedException();
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task UpdateDescription(Guid id, string description)
     {
         throw new NotImplementedException();
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task UpdatePayers(Guid expenseId, List<Payer> payers)
     {
         throw new NotImplementedException();
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task UpdateConsumers(Guid expenseId, List<Consumer> consumers)
     {
         throw new NotImplementedException();

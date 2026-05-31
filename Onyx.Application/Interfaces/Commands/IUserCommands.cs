@@ -1,6 +1,6 @@
 using Onyx.Domain.Models;
 
-namespace Onyx.Domain.Interfaces.Commands;
+namespace Onyx.Application.Interfaces.Commands;
 
 public interface IUserCommands
 {

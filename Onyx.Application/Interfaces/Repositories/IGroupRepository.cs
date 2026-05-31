@@ -1,6 +1,6 @@
 using Onyx.Domain.Models;
 
-namespace Onyx.Domain.Interfaces.Repositories;
+namespace Onyx.Application.Interfaces.Repositories;
 
 public interface IGroupRepository
 {

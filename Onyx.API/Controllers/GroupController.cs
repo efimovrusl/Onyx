@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Onyx.Domain.Interfaces.Commands;
-using Onyx.Domain.Interfaces.Queries;
+using Onyx.Application.Interfaces.Commands;
+using Onyx.Application.Interfaces.Queries;
 using Onyx.Domain.Models;
 
 namespace Onyx.API.Controllers;
@@ -54,12 +54,12 @@ public class GroupController(
         return Ok();
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteGroup(Guid id)
-    {
-        await commands.DeleteGroup(id);
-        return Ok();
-    }
+    // [HttpDelete("{id}")]
+    // public async Task<IActionResult> DeleteGroup(Guid id)
+    // {
+    //     await commands.DeleteGroup(id);
+    //     return Ok();
+    // }
 }
 
 public record CreateGroupRequest(string Name, List<Guid> MemberIds);

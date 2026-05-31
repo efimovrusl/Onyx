@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Onyx.Domain.Interfaces.Repositories;
+using Onyx.Application.Interfaces.Repositories;
 using Onyx.Domain.Models;
 using Onyx.Infrastructure.Context;
 using Onyx.Infrastructure.Mappers;
@@ -60,6 +60,7 @@ public class GroupRepository(SpendingDbContext db) : IGroupRepository
         await db.SaveChangesAsync();
     }
 
+    [Obsolete("Not implemented yet")]
     public async Task Delete(Guid id)
     {
         // TODO: Implement group deletion properly, like by only marking it as deleted

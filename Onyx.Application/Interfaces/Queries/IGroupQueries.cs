@@ -1,6 +1,6 @@
 using Onyx.Domain.Models;
 
-namespace Onyx.Domain.Interfaces.Queries;
+namespace Onyx.Application.Interfaces.Queries;
 
 public interface IGroupQueries
 {
