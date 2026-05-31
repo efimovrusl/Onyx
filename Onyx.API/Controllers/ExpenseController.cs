@@ -26,6 +26,13 @@ public class ExpenseController(
         var expenses = await queries.GetGroupExpenses(groupId);
         return Ok(expenses);
     }
+
+    [HttpGet("group/{groupId}/consumer/{userId}")]
+    public async Task<ActionResult<List<Expense>>> GetConsumerExpenses(Guid groupId, Guid userId)
+    {
+        var expenses = await queries.GetConsumerExpenses(groupId, userId);
+        return Ok(expenses);
+    }
     
     [HttpPost]
     public async Task<ActionResult<Expense>> AddExpense([FromBody] AddExpenseRequest request)

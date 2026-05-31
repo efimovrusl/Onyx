@@ -2,12 +2,6 @@
 
 Short backend-only backlog for unfinished implementation work. Sorted roughly from easiest/clearest to hardest/vaguest.
 
-## Expense queries
-
-- Implement `IExpenseQueries.GetConsumerExpenses(...)` / `ExpenseQueries.GetConsumerExpenses(...)`.
-  - `ExpenseRepository.GetByConsumerId(...)` already exists.
-  - Also filter by `groupId`; currently the consumer repository query only filters by consumer.
-
 ## Expense repository helpers
 
 - Implement `IExpenseRepository.GetPayers(...)` / `ExpenseRepository.GetPayers(...)`.
@@ -37,7 +31,7 @@ Short backend-only backlog for unfinished implementation work. Sorted roughly fr
 - Wire schema bootstrap/migrations into the dev flow.
 - Current SQL scripts exist, but are not automatically applied by the API/Compose setup.
 
-## API error behavior
+## API error behaviour
 
 - Replace raw not-found exceptions with explicit not-found handling.
 - Map expected backend failures to useful HTTP responses.
@@ -58,4 +52,3 @@ Short backend-only backlog for unfinished implementation work. Sorted roughly fr
 ## Settlement
 
 - Implement `ISettlementCommands.SettleDebt(...)` after the debt model is clear.
-

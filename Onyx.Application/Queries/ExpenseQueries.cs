@@ -21,9 +21,8 @@ public class ExpenseQueries(IExpenseRepository expenseRepository) : IExpenseQuer
         return await expenseRepository.GetByPayerId(groupId, userId);
     }
     
-    [Obsolete("Not implemented yet")]
     public async Task<List<Expense>> GetConsumerExpenses(Guid groupId, Guid userId)
     {
-        throw new NotImplementedException();
+        return await expenseRepository.GetByConsumerId(groupId, userId);
     }
 }

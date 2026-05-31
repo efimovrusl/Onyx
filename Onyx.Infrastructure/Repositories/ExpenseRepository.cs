@@ -52,7 +52,9 @@ public class ExpenseRepository(SpendingDbContext db) : IExpenseRepository
             .Include(e => e.ExpensesPayers)
             .Include(e => e.ExpensesConsumers)
             .AsSplitQuery()
-            .Where(e => e.ExpensesConsumers.Any(c => c.ConsumerId == consumerId))
+            .Where(e =>
+                e.GroupId == groupId &&
+                e.ExpensesConsumers.Any(c => c.ConsumerId == consumerId))
             .ToListAsync();
 
         return [.. dbExpenses.Select(static e => e.ToDomain())];
